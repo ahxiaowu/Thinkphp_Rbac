@@ -1,0 +1,20 @@
+body{
+    font:14px '宋体';
+    margin: 0px;
+    padding: 0px;
+}
+.table{
+    width: 1000px;
+    border-collapse: collapse;
+    margin: 3px;
+}
+.table tr td,.table tr th{
+    border: 1px #E68A8A solid;
+    padding: 3px;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}

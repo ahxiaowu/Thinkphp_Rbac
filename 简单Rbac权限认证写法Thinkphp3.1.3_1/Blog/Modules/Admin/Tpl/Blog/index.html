@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>博文列表</title>
+    <css file="__PUBLIC__/Css/blog.css" />
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>标题</th>
+    </tr>
+
+    <foreach name="blog" item="v">
+    <tr>
+        <td>{$v.id}</td>
+        <td>{$v.title}</td>
+    </tr>
+    </foreach>
+</table>
+</body>
+</html>

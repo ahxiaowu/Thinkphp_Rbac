@@ -1,0 +1,8 @@
+body{font: 14px '宋体';margin: 0px;padding: 0px;}
+#login_main{
+    width: 500px;margin: 20% auto;
+    padding: 5px;
+    text-align:center;
+    border: 1px #005916 solid;
+    -webkit-border-radius: 5px;
+}

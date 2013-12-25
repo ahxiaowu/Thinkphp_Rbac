@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Js/index.js"></script>
+        <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+        <link rel="stylesheet" href="__PUBLIC__/Css/index.css" />
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <base target="iframe"/>
+    </head>
+    <body>
+        <div id="top">
+            <div class="exit">
+                <a href="#" target="_self">退出</a>
+                <a href="#" target="_blank">上善若水</a>
+            </div>
+        </div>
+        <div id="left">
+            <dl>
+                <dt>RBAC权限管理</dt>
+                <dd><a href="{:U(GROUP_NAME.'/Rbac/addRole')}">添加角色</a></dd>
+                <dd><a href="{:U(GROUP_NAME.'/Rbac/role')}">角色列表</a></dd>
+
+                <dd><a href="{:U(GROUP_NAME.'/Rbac/addNode')}">添加节点</a></dd>
+                <dd><a href="{:U(GROUP_NAME.'/Rbac/node')}">节点列表</a></dd>
+
+                <dd><a href="{:U(GROUP_NAME.'/Rbac/addUser')}">添加用户</a></dd>
+                <dd><a href="{:U(GROUP_NAME.'/Rbac/index')}">用户列表</a></dd>
+            </dl>
+        </div>
+        <div id="right">
+            <iframe name="iframe" src="{:U(GROUP_NAME.'/Index/showdefault')}"></iframe>
+        </div>
+    </body>
+</html>

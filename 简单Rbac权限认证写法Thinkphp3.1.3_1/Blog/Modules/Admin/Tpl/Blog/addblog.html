@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>添加博文</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <css file="__PUBLIC__/Css/blog.css" />
+        <js file='__ROOT__/Public/ueditor/ueditor.config.js' />
+        <js file='__ROOT__/Public/ueditor/ueditor.all.min.js' />
+        <script>
+            window.UEDITOR_HOME_URL = '__ROOT__/Public/ueditor/';
+            window.onload = function(){
+                window.UEDITOR_CONFIG.initialFrameHeight = 500;
+                UE.getEditor('info');
+            }
+        </script>         
+    </head>
+    <body>
+        <form action="{:U(GROUP_NAME.'/Blog/saveblog')}" method="post">
+        <table class="table">
+            <tr>
+                <td class="right">标题：</td>
+                <td>
+                    <input type="text" name="title" />
+                </td>
+            </tr>
+            <tr>
+                <td class="right">点击次数：</td>
+                <td>
+                    <input type="text" name="click" value="1" />
+                </td>
+            </tr>
+            <tr>
+                <td class="right">类别：</td>
+                <td>
+                    <select name="cid">
+                        <option value="0"> ==请选择类别== </option>
+                        <foreach name="cateArr" item="v">
+                            <option value="{$v.id}">{$v.html} {$v.cname}</option>
+                        </foreach>
+                    </select>
+                </td>
+            </tr>       
+            <tr>
+                <td class="right">属性：</td>
+                <td>
+                    <foreach name="attr" item="v">
+                        <span style="color:{$v.color};font-weight:bold;">
+                            <input type="checkbox" value="{$v.id}" name="aid[]" /> {$v.aname}
+                        </span>
+                    </foreach>
+                </td>
+            </tr>    
+            <tr>
+                <td colspan="2">
+                    <textarea id="info" name="content"></textarea>
+                </td>
+            </tr>  
+             <tr>
+                <td colspan="2">
+                    <input type="submit" value=" 提交博文 " />
+                </td>
+            </tr>             
+        </table>
+    </form>
+    </body>
+</html>
