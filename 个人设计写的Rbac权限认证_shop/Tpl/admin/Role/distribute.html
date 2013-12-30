@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>添加分配权限</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link href="{$smarty.const.ADMIN_CSS_URL}mine.css" type="text/css" rel="stylesheet" />
+        <style type="text/css">
+        {literal}
+        li {list-style-type:none;}
+        {/literal}
+        </style>
+    </head>
+
+    <body>
+
+        <div class="div_head">
+            <span>
+                <span style="float:left">当前位置是：分配权限管理-》添加分配权限信息</span>
+                <span style="float:right;margin-right: 8px;font-weight: bold">
+                    <a style="text-decoration: none" href="{$Think.const.__GROUP__}/Goods/showlist">【返回】</a>
+                </span>
+            </span>
+        </div>
+        <div></div>
+
+        <div style="font-size: 13px;margin: 10px 5px">
+            <h2>当前权限：{$role_name}</h2>
+            <form action="__SELF__" method="post" enctype="multipart/form-data">
+                <ul>
+                    {foreach $p_auth as $k => $v}
+                    <li>{$v.auth_name}
+                        <input type="checkbox" name="auth_name[]" {if in_array($v.auth_id,$role_auth_ids)}checked{/if} value="{$v.auth_id}" /></li>
+                    <li>
+                        <ul>
+                            {foreach $s_auth as $kk => $vv}
+                            {if $vv.auth_pid == $v.auth_id}
+                            <li>{$vv.auth_name}
+                                <input type="checkbox" name="auth_name[]" {if in_array($vv.auth_id,$role_auth_ids)}checked{/if} value="{$vv.auth_id}"/></li>
+                            <li>
+                                <ul>
+                                    {foreach $t_auth as $kkk => $vvv}
+                                    {if $vvv.auth_pid == $vv.auth_id}
+                                    <li>{$vvv.auth_name}<input type="checkbox" name="auth_name[]" {if in_array($vvv.auth_id,$role_auth_ids)}checked{/if} value="{$vvv.auth_id}" /></li>
+                                    {/if}
+                                    {/foreach}
+                                </ul>
+                            </li>
+                            {/if}
+                            {/foreach}
+                        </ul>
+                    </li>
+                    {/foreach}
+                </ul>
+                        <input type="submit" value="分配权限">
+            </form>
+        </div>
+    </body>
+</html>
