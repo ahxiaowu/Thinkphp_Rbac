@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h3>用户添加</h3>
+<form action="" method="post">
+	账号:
+	<input type="text" name="" id=""> <br />
+	账号:
+	<input type="text" name="" id=""> <br />
+	角色:
+	<select name="" id="">
+		<foreach name="role" item="v">
+		<option value="{$v.role_id}">{$v.role_name}</option>
+		</foreach>
+	</select><br />
+	<input type="submit" value=" 添加用户 ">
+</form>
+</body>
+</html>

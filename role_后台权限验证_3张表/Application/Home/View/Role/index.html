@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>角色管理</title>
+</head>
+<body>
+<h3>角色管理</h3> 
+<a href="{:U('add')}">添加角色</a>
+<table>
+	<tr>
+		<th>序号</th>
+		<th>角色名称</th>
+		<th>操作</th>
+	</tr>	
+	<foreach name="info" item="vo">
+	<tr>
+		<td>{$key+1}</td>
+		<td>{$vo.role_name}</td>
+		<td>
+			<a href="{:U('auth',array('role_id'=>$vo['role_id']))}">分配权限</a>
+		</td>
+	</tr>
+	</foreach>
+</table>
+</body>
+</html>

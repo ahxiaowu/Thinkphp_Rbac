@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h3>添加权限</h3>
+<form action="__ACTION__" method="post">
+	权限名称:
+	<input type="text" name="auth_name" id=""><br/>
+	父级权限:
+	<select name="auth_pid" id="">
+		<option value="0">请选择</option>
+		<foreach name="authInfo" item="v">
+		<option value="{$key}">{$v}</option>
+		</foreach>
+	</select><br/>
+	权限模块:
+	<input type="text" name="auth_c" id=""><br/>
+	权限方法:
+	<input type="text" name="auth_a" id=""><br/>	
+	<input type="submit" value=" 添加权限 ">	
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<h3>用户列表</h3>
+<a href="{:U('add')}">添加用户</a>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>账号</th>
+		<th>时间</th>
+		<th>操作</th>
+	</tr>
+	<foreach name="info" item="v">
+	<tr>
+		<td>{$v.id}</td>
+		<td>{$v.uname}</td>
+		<td>{$v.utime}</td>
+		<td>
+			<a href="">修改</a> | 
+			<a href="">删除</a>
+		</td>
+	</tr>
+	</foreach>
+</table>
+</body>
+</html>

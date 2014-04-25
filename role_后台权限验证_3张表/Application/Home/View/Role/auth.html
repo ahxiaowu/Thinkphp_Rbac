@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		font-size: 14px;
+	}
+	ul,li{
+		list-style: none;
+	}
+	</style>
+</head>
+<body>
+<h3>分配权限 -- {$roleName}</h3>
+<form action="__ACTION__" method="post">
+<foreach name="pauth" item="v">
+<ul>
+	<li>
+		{$v.auth_name}
+		<if condition="in_array($v['auth_id'],explode(',',$roleids))">
+			<input type="checkbox" name="authID[]" value="{$v.auth_id}" checked="checked">
+		<else />
+			<input type="checkbox" name="authID[]" value="{$v.auth_id}">
+		</if>
+	</li>
+	<li>
+		<ul>
+			<foreach name="sauth" item="vo">
+			<if condition="$vo['auth_pid'] eq $v['auth_id']">
+			<li>
+				{$vo.auth_name}
+				<if condition="in_array($vo['auth_id'],explode(',',$roleids))">
+					<input type="checkbox" name="authID[]" value="{$vo.auth_id}" checked="checked">
+				<else />
+					<input type="checkbox" name="authID[]" value="{$vo.auth_id}">
+				</if>
+			</li>
+			<li>
+				<ul>
+					<foreach name="tauth" item="vv">
+					<if condition="$vo['auth_id'] eq $vv['auth_pid']">
+					<li>
+						{$vv.auth_name}
+						<if condition="in_array($vv['auth_id'],explode(',',$roleids))">
+							<input type="checkbox" name="authID[]" value="{$vv.auth_id}" checked="checked">
+						<else />
+							<input type="checkbox" name="authID[]" value="{$vv.auth_id}">
+						</if>
+					</li>
+					</if>
+					</foreach>
+				</ul>
+			</li>
+			</if>
+			</foreach>
+		</ul>
+	</li>
+</ul>
+</foreach>
+<input type="hidden" name="role_id" value="{$role_id}">
+<input type="submit" value=" 分配权限 ">
+</form>
+</body>
+</html>
